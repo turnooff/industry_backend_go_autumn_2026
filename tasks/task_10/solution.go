@@ -251,7 +251,7 @@ func decodeStrictJSON(r io.Reader, v any) error {
 	rawMsg := json.RawMessage{}
 
 	err = decoder.Decode(&rawMsg)
-	if err == io.EOF {
+	if errors.Is(err, io.EOF) {
 		return nil
 	}
 	return errors.New("unexpected data after JSON")
