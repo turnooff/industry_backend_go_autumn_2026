@@ -24,7 +24,6 @@ func NewLRUCache[K comparable, V any](capacity int) *LRUCache[K, V] {
 	newLRU := &LRUCache[K, V]{}
 
 	newLRU.capacity = capacity
-	newLRU.mu = sync.Mutex{}
 	newLRU.ll = list.List{}
 	newLRU.items = make(map[K]*list.Element)
 
